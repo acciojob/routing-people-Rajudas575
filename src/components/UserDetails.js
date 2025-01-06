@@ -17,8 +17,8 @@ function UserDetails() {
   }, [id]);
 
   if (loading) {
-    return <div>Loading...</div>;
-  }
+  return <div>Loading...</div>;
+}
 
   if (!user) {
     return <div>User not found</div>;
