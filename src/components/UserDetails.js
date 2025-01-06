@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 function UserDetails() {
   const { id } = useParams();
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true); 
 
   useEffect(() => {
     setLoading(true);
@@ -12,13 +12,14 @@ function UserDetails() {
       .then((response) => response.json())
       .then((data) => {
         setUser(data);
-        setLoading(false);
-      });
+        setLoading(false); 
+      })
+      .catch(() => setLoading(false)); 
   }, [id]);
 
   if (loading) {
-  return <div>Loading...</div>;
-}
+    return <div>Loading...</div>; 
+  }
 
   if (!user) {
     return <div>User not found</div>;
